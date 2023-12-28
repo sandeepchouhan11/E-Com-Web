@@ -28,9 +28,9 @@ class ProductDetailView(View):
             item_alredy_in_cart=Cart.objects.filter(
             Q(product=product.id)& Q(user = request.user)
               ).exists()
-            return render(request,"productdetail.html",{"product":product,"item_alredy_in_cart":item_alredy_in_cart})    
+            return render(request,"app/productdetail.html",{"product":product,"item_alredy_in_cart":item_alredy_in_cart})    
         else:
-            return render(request,"productdetail.html",{"product":product,"item_alredy_in_cart":item_alredy_in_cart})
+            return render(request,"app/productdetail.html",{"product":product,"item_alredy_in_cart":item_alredy_in_cart})
 
 
 
@@ -62,6 +62,9 @@ class ProductDetailView(View):
 #     amount =0.0
 #     shopping_amount =70.0
 #     cart_product = [p for p in Cart.objects,all()]
+        
+
+
 
 def add_to_cart(request):
  return render(request, 'app/addtocart.html')
